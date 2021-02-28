@@ -13,7 +13,7 @@
 
       <ul class="navbar-nav mb-2 mb-lg-0">
         <% if user_signed_in? %>
-          <%= link_to "Edit user", edit_user_registration_path, class: "nav-item nav-link" %>
+          <%= link_to Current.user.username, edit_user_registration_path, class: "nav-item nav-link" %>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path, class: "nav-item nav-link" %>
