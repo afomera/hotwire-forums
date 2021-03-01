@@ -1,0 +1,20 @@
+<%= turbo_frame_tag dom_id(discussion) do %>
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <h1><%= discussion.name %></h1>
+      <span class="text-muted fs-6">
+        <% if discussion.pinned %>
+          <span class="badge rounded-pill bg-info">Pinned</span>
+        <% end %>
+
+        <% if discussion.closed %>
+          <span class="badge rounded-pill text-danger">Closed</span>
+        <% end %>
+      </span>
+    </div>
+    <div>
+      <%= link_to "Edit", edit_discussion_path(discussion) %> |
+      <%= link_to "Destroy", discussion, method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+<% end %>

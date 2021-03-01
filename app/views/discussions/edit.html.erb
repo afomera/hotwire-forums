@@ -1,2 +1,5 @@
 <h1>Edit discussion</h1>
-<%= render("form", discussion: @discussion) %>
+<%= turbo_frame_tag dom_id(@discussion) do %>
+  <%= render("form", discussion: @discussion) %>
+  <%= link_to "Cancel", @discussion %>
+<% end %>
