@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  discussion: one
+  user: one
+
+two:
+  discussion: two
+  user: two
