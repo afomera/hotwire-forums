@@ -1,0 +1,26 @@
+<%= turbo_frame_tag "#{dom_id(post)}_form", target: "_top" do %>
+  <%= form_with(model: [post.discussion, post]) do |form| %>
+    <% if post.errors.any? %>
+      <div id="error_explantion">
+        <h2>
+          <%= pluralize(post.errors.count, "error") %>
+          prohibited this post from being saved:
+        </h2>
+        <ul>
+          <% post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :body, class: "visually-hidden form-label" %>
+      <%= form.rich_text_area :body, placeholder: "Add your comment", autofocus: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>
