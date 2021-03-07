@@ -1,0 +1,10 @@
+<h1>Edit post</h1>
+<%= turbo_frame_tag dom_id(@post) do %>
+  <div class="card my-4">
+    <div class="card-body">
+      <%= render(partial: "discussions/posts/header", locals: { post: @post }) %>
+      <%= render("form", post: @post) %>
+      <%= link_to 'Back', discussion_post_path(@post.discussion, @post) %>
+    </div>
+  </div>
+<% end %>
