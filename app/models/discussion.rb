@@ -11,6 +11,8 @@ class Discussion < ApplicationRecord
 
   accepts_nested_attributes_for :posts
 
+  scope :pinned_first, -> { order(pinned: :desc, updated_at: :desc) }
+
   broadcasts_to :category, inserts_by: :prepend
 
   after_create_commit -> { broadcast_prepend_to "discussions" }
