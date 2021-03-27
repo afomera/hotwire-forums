@@ -1,4 +1,4 @@
 <div id="<%= dom_id(category) %>" class="d-flex align-items-start justify-content-between">
-  <h4><%= category.name %></h4>
+  <h4><%= link_to category.name, category_discussions_path(category) %></h4>
   <span class="badge bg-secondary rounded-pill text-light"><%= category.discussions_count if category.discussions_count&.positive? %></span>
 </div>
