@@ -1,5 +1,6 @@
 class Discussion < ApplicationRecord
   belongs_to :user, default: -> { Current.user }
+  belongs_to :category, counter_cache: true, touch: true
 
   validates :name, presence: true
 
