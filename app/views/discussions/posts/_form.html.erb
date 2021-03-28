@@ -24,6 +24,10 @@
         <%= form.rich_text_area :body, placeholder: "Add your comment", autofocus: true %>
       </div>
 
+      <% if local_assigns[:redirect] %>
+        <%= form.hidden_field :redirect, value: true %>
+      <% end %>
+
       <div class="mb-3">
         <%= form.submit class: "btn btn-primary" %>
       </div>

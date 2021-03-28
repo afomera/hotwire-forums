@@ -2,12 +2,19 @@
 
 <%= render(partial: "discussions/header", locals: { discussion: @discussion }) %>
 
-<div id="posts" class="mt-4">
+<div class="mt-4">
   <%= render partial: "discussions/posts/post", collection: @posts %>
+  <% if @pagy.page == @pagy.last %>
+    <div id="posts"></div>
+  <% end %>
 </div>
 
 <hr class="my-4">
 
+<%== pagy_bootstrap_nav(@pagy) %>
+
+<hr class="my-4">
+
 <div id="<%= dom_id(@new_post) %>">
-  <%= render("discussions/posts/form", post: @new_post) %>
+  <%= render("discussions/posts/form", post: @new_post, redirect: @pagy.page != @pagy.last) %>
 </div>

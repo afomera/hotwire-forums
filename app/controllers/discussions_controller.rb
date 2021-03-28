@@ -7,7 +7,7 @@ class DiscussionsController < ApplicationController
   end
 
   def show
-    @posts = @discussion.posts.includes(:user, :rich_text_body).order(created_at: :asc)
+    @pagy, @posts = pagy(@discussion.posts.includes(:user, :rich_text_body).order(created_at: :asc), items: 5)
     @new_post = @discussion.posts.new
   end
 
