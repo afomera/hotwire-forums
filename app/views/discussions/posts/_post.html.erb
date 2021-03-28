@@ -5,9 +5,20 @@
       <%= post.body %>
     </div>
 
-    <div class="card-footer">
-      <%= link_to "Edit", edit_discussion_post_path(post.discussion, post), data: { turbo_frame: dom_id(post) } %> |
-      <%= link_to "Delete", discussion_post_path(post.discussion, post), method: :delete %>
-    </div>
+    <% if action_name.nil? %>
+      <%# lazy load controls because it's being broadcasted %>
+      <%= turbo_frame_tag "post_actions", src: discussion_post_path(post.discussion, post) do %>
+        <div class="card-footer"></div>
+      <% end %>
+    <% else %>
+      <%= turbo_frame_tag "post_actions" do %>
+        <% if Current.user == post.user || Current.user.admin? %>
+          <div class="card-footer mt-2">
+            <%= link_to "Edit", edit_discussion_post_path(post.discussion, post), data: { turbo_frame: dom_id(post) } %> |
+            <%= link_to "Delete", discussion_post_path(post.discussion, post), method: :delete %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
