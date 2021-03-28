@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Notifications</h1>
+  <%= button_to read_notifications_path, method: :post, class: "btn btn-primary" do %>
+    Mark all as read
+  <% end %>
+</div>
+
+<h3>What's new?</h3>
+<% if @notifications.any? %>
+  <%= render @notifications %>
+<% else %>
+  <div class="mb-3">No new notifications</div>
+<% end %>
+
+<% if @previous_notifications.any? %>
+  <h4>Previously Seen</h4>
+  <%= render(partial: "notification", collection: @previous_notifications) %>
+<% end %>
