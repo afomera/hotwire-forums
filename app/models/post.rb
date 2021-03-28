@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   belongs_to :user, default: -> { Current.user }
 
   has_rich_text :body
+  has_noticed_notifications
 
   validates :body, presence: true
 

@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :discussions, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :discussion_subscriptions, dependent: :destroy
+  has_many :notifications, as: :recipient
 end
