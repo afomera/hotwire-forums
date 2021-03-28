@@ -15,6 +15,10 @@
 
 <hr class="my-4">
 
+<%= turbo_frame_tag "discussion_notification_status" do %>
+  <%= render("discussions/notifications/status", discussion: @discussion, user: Current.user) %>
+<% end %>
+
 <div id="<%= dom_id(@new_post) %>">
   <%= render("discussions/posts/form", post: @new_post, redirect: @pagy.page != @pagy.last) %>
 </div>
