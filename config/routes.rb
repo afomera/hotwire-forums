@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "main#index"
+  unauthenticated do
+    root to: "main#index", as: :unauthenticated_root
+  end
+
+  authenticated do
+    root to: "discussions#index"
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
