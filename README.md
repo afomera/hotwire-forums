@@ -1,24 +1,11 @@
-# README
+# Learn Hotwire by Building a Forum
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the source code for the course [Learn Hotwire by Building a Forum](https://store.afomera.dev/learn-hotwire)
 
-Things you may want to cover:
+Each lesson is available as a branch.
 
-* Ruby version
+### Requirements
+- Ruby 3.0
+- Postgres 10+ (or higher!)
+- Rails 6.1.3.1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
